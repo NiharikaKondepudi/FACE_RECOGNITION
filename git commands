@@ -150,3 +150,12 @@ git apply /path/to/my-patch.patch
 git add .
 git commit -m "Applied patch from the hub repository"
 git push origin your-local-branch  # If you want to push the changes
+
+
+git fetch origin
+git merge origin/main
+git pull origin main
+
+git add readme.md
+git commit --amend --no-edit
+git push --force origin main
