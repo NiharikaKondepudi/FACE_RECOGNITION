@@ -1,0 +1,70 @@
+git checkout main
+git pull origin main
+git checkout -b feature-copy
+# Make and commit changes in feature-copy
+git add .
+git commit -m "Work done in feature-copy branch"
+git checkout main
+git merge feature-copy
+# Resolve conflicts in your files
+git add <conflicted-file>
+git merge --continue
+git push origin main
+
+
+git init
+echo "This is the parent file." > parent.txt
+echo "This is the child file." > child.txt
+git add child.txt
+git commit -m "Add child file"
+git add parent.txt
+git commit -m "Add parent file"
+git rebase -i HEAD~2
+git log --oneline
+pick 4c4e745 child posted
+
+# 1. Commit with unclear message
+echo "Some changes" > Service.java
+git add .
+git commit -m "fix stuff"
+
+# 2. Rebase interactively to amend the commit message
+git rebase -i HEAD~1
+
+# Change "pick" to "reword", and then edit the commit message
+
+# 3. Force-push the changes to the remote repository
+git push --force
+
+
+
+git init
+echo "Version 1" > file.txt
+git add file.txt
+git commit -m "v1: Initial commit"
+echo "Version 2" > file.txt
+git add file.txt
+git commit -m "v2: Updated the file"
+echo "Version 3" > file.txt
+git add file.txt
+git commit -m "v3: Another update to the file"
+echo "Version 4" > file.txt
+git add file.txt
+git commit -m "v4: Final update to the file"
+git log --oneline
+git checkout <commit_id_v4> -- file.txt
+
+git config --global core.excludesFile ~/.gitignore_global
+echo "*.log" >> ~/.gitignore_global        # Ignore all log files
+echo "*.class" >> ~/.gitignore_global      # Ignore all Java class files
+echo "*.pyc" >> ~/.gitignore_global        # Ignore all Python bytecode files
+echo "node_modules/" >> ~/.gitignore_global  # Ignore node_modules directory
+echo ".idea/" >> ~/.gitignore_global        # Ignore JetBrains IDE files
+git rm --cached *.log
+git commit -m "Remove ignored files from tracking"
+git status
+
+git stash
+git checkout <branch-name>
+git checkout <original-branch>
+git stash pop
